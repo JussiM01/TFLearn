@@ -3,12 +3,12 @@ import tflearn
 
 # Download titanic dataset
 from tflearn.datasets import titanic
-titanic.Download_dataset('titanic_dataset.csv')
+titanic.download_dataset('titanic_dataset.csv')
 
 # Load CSV file, indicate that the first column represents labels
 from tflearn.data_utils import load_csv
-data, labels = load_csv('titanic_dataset', target_column=0,
-    categorial_labels=True, n_classes=2)
+data, labels = load_csv('titanic_dataset.csv', target_column=0,
+    categorical_labels=True, n_classes=2)
 
 # Preprocessing function
 def Preprocess(data, column_to_ignore):
@@ -30,7 +30,7 @@ data = Preprocess(data, to_ignore)
 net = tflearn.input_data(shape=[None, 6])
 net = tflearn.fully_connected(net, 32)
 net = tflearn.fully_connected(net, 32)
-net = tflearn.fully_connected(net, 2, activation='sofmax')
+net = tflearn.fully_connected(net, 2, activation='softmax')
 net = tflearn.regression(net)
 
 # Define model
