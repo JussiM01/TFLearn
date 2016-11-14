@@ -20,7 +20,7 @@ with tf.Graph().as_default():
     X = tf.placeholder(shape=(None, 784), dtype=tf.float32)
     Y = tf.placeholder(shape=(None, 10), dtype=tf.float32)
 
-    net tf.reshape(X, [-1, 28, 28, 1])
+    net = tf.reshape(X, [-1, 28, 28, 1])
 
     # Using TFLearn wrappers for network building
     net = tflearn.conv_2d(net, 32, 3, activation='relu')
@@ -59,4 +59,4 @@ with tf.Graph().as_default():
                 avg_cost += cost/total_batch
                 if i % 20 == 0:
                     print("Epoch:", '%03d' % (epoch+1), "Step:", '%03d' % i,
-                        "Loss", str(cost))
+                        "Loss:", str(cost))
