@@ -3,7 +3,7 @@ This tutorial will introduce how to combine TFLearn built-in ops with any
 Tensorflow graph.
 """
 
-import tensorfow as tf
+import tensorflow as tf
 import tflearn
 
 #-----------------------------------
@@ -67,5 +67,5 @@ with tf.Graph().as_default():
     # details logs about gradients, varibles etc...
     trainer = tflearn.Trainer(train_ops=trainop, tensorboard_verbose=0)
     # Training for 10 epochs.
-    trainer.fit({X: trainX, Y}, val_feed_dicts={X: testX, Y: testY},
+    trainer.fit({X: trainX, Y: trainY}, val_feed_dicts={X: testX, Y: testY},
         n_epoch=10, show_metric=True)
