@@ -11,7 +11,7 @@ import tflearn
 #-----------------------------
 
 # Loading MNIST complete dataset
-import tflearn.dataset.mnist as mnist
+import tflearn.datasets.mnist as mnist
 trainX, trainY, testX, testY = mnist.load_data(one_hot=True)
 
 # Define a dnn using Tensorflow
@@ -53,4 +53,4 @@ with tf.Graph().as_default():
     trainer = tflearn.Trainer(train_ops=trainop, tensorboard_verbose=0)
     # Training for 10 epoch.
     trainer.fit({X: trainX, Y: trainY}, val_feed_dicts={X: testX, Y: testY},
-        n_epoch, show_metric=True)
+        n_epoch=10, show_metric=True)
